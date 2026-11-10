@@ -69,10 +69,10 @@ the project runs in 3 phases and it comes with a guideline
 **Task split**
 
 * Anna-Maria -- backend lead: Node.js API, claude API, image upload, database schema
-* Rens -- CMS \& PHP: admin panel, game page management, user authentication, moderation tools
+* Rens & daimien -- CMS \& PHP: admin panel, game page management, user authentication, moderation tools
 * "bush" -- frontend: all public facing pages, responsive layouts, Culture Wall display
 * Olle -- bulletin board: post creation flow, comment system, tag filtering, reactions
-* Daimien -- AI integration: prompt engineering, fact database, caption suggestion UI, Culture Wall logic
+* thimothy -- AI integration: prompt engineering, fact database, caption suggestion UI, Culture Wall logic
 
 
 
@@ -87,12 +87,8 @@ the project runs in 3 phases and it comes with a guideline
 
 
 olle 
-
 anna maria 
-
 daimien
-
 rens
-
 costic AKA "bush" 
-
+thimothy
