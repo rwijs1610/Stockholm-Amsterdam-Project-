@@ -1,1 +1,24 @@
-".env.local" 
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Node.js dependencies and generated output
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.npm/
+coverage/
+dist/
+build/
+
+# PHP dependencies
+vendor/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
