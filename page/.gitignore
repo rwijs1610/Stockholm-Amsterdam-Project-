@@ -2,6 +2,7 @@
 .env
 .env.*
 !.env.example
+page/.env
 
 # Node.js dependencies and generated output
 node_modules/
