@@ -2,7 +2,7 @@
 .env
 .env.*
 !.env.example
-page/.env.local:1
+page/.env.local
 # Node.js dependencies and generated output
 node_modules/
 npm-debug.log*
