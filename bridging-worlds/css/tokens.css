@@ -1,0 +1,12 @@
+root {
+    --paper: #f5f2eb;
+    --ink: #242522;
+    --muted: #696b65;
+    --rule: #cbc7bd;
+    --oat: #ded8cd;
+    --blue: #274c91;
+    --red: #b6573c;
+    --sans: "DM Sans",Arial,sans-serif;
+    --serif: "Instrument Serif",Georgia,serif;
+    --mono: "IBM Plex Mono",monospace
+}

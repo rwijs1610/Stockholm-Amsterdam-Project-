@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bridging Worlds: Amsterdam and Stockholm</title>
+<meta name="description" content="Three games built by students at Mediacollege Amsterdam and LBS Kreativa Gymnasiet Stockholm, and the culture between the two cities.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/bridging-worlds/css/base.css">
+<link rel="stylesheet" href="/bridging-worlds/css/home.css">
+</head>
+<body>
+
+<!-- MASTHEAD: shared. On other pages remove masthead--overlay -->
+<header class="masthead masthead--overlay">
+  <div class="container masthead__bar">
+    <a class="brand" href="index.html">Bridging Worlds</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#games">Games</a><a href="#culture-wall">Culture Wall</a><a href="bulletin-board.html">Bulletin Board</a>
+    </nav>
+    <p class="tags"><span class="tag tag--ams">Amsterdam</span><span class="tag tag--sto">Stockholm</span></p>
+  </div>
+</header>
+
+<main>
+<!-- HERO. Put a transparent PNG of a character in .cutout: <img src="img/hero-character.png" alt="..."> -->
+<section class="hero" aria-labelledby="hero-title">
+  <h1 class="hero__title" id="hero-title"><span><span>Bridging</span></span><span><span>Worlds</span></span></h1>
+  <div class="cutout" role="img" aria-label="Placeholder: character cutout"><span class="micro">Transparent PNG of a game character</span></div>
+  <div class="hero__foot">
+    <p class="micro">Student exchange<br>Mediacollege Amsterdam x LBS Kreativa Gymnasiet</p>
+    <a class="btn" href="#games">See the games</a>
+  </div>
+</section>
+
+<section class="container statement">
+  <p class="micro">About the project</p>
+  <h2>Three games. <span class="dim">Two cities.</span> <span class="hi">One wall</span> <span class="dim">of culture.</span></h2>
+</section>
+
+<!-- GAMES. Swap a placeholder by putting <video controls poster>, <iframe> or <img> inside .media -->
+<section class="container section" id="games" aria-labelledby="games-title">
+  <header class="section__head">
+    <h2 id="games-title">The <span class="dim">games</span></h2>
+    <p class="micro">Three teams, three stories</p>
+  </header>
+
+  <article class="tile tile--a">
+    <figure><div class="media" role="img" aria-label="Placeholder: gameplay video for game one"><span class="micro">Gameplay video 16:9</span></div></figure>
+    <div class="tile__text">
+      <ul class="tags"><li class="tag tag--ams">Amsterdam team</li><li class="tag">Genre</li></ul>
+      <h3>Headline for <span class="hi">game one</span></h3>
+      <p class="lede">Two or three sentences on the story of the game: what you do in it, why it exists, and what the city it came from left in it.</p>
+      <dl class="credits"><div><dt class="micro">Team</dt><dd>Names and roles</dd></div><div><dt class="micro">Built with</dt><dd>Engine or tools</dd></div></dl>
+      <a class="btn" href="#">Play in browser</a>
+    </div>
+  </article>
+
+  <article class="tile tile--b">
+    <div class="tile__text">
+      <ul class="tags"><li class="tag tag--sto">Stockholm team</li><li class="tag">Genre</li></ul>
+      <h3>Headline for <span class="dim">game</span> <span class="hi">two</span></h3>
+      <blockquote class="pull">A line from the team that sums up the game.<cite>Student name, Stockholm</cite></blockquote>
+      <dl class="credits"><div><dt class="micro">Team</dt><dd>Names and roles</dd></div><div><dt class="micro">Built with</dt><dd>Engine or tools</dd></div></dl>
+      <a class="btn" href="#">Download the game</a>
+    </div>
+    <figure><div class="media" style="--c1:#3B5BFF;--c2:#FFD21F" role="img" aria-label="Placeholder: screenshots for game two"><span class="micro">Screenshots</span></div></figure>
+  </article>
+
+  <article class="tile tile--c">
+    <div class="media" style="--c1:#FFD21F;--c2:#FF4B1F" role="img" aria-label="Placeholder: trailer for game three"><span class="micro">Trailer or wide still 21:9</span></div>
+    <div class="cutout" role="img" aria-label="Placeholder: character cutout"><span class="micro">Character PNG</span></div>
+    <div class="tile__text">
+      <ul class="tags"><li class="tag tag--ams">Amsterdam team</li><li class="tag tag--sto">Stockholm team</li></ul>
+      <h3>Headline for <span class="hi">game three</span></h3>
+      <p class="lede">Built across both cities. Use this one for the game that mixed the two teams.</p>
+      <a class="btn" href="#">Play in browser</a>
+    </div>
+  </article>
+
+  <!-- Progress gallery (bento). 7 tiles: screenshots, photos, short clips -->
+  <p class="micro" style="margin-top:clamp(3rem,6vw,5rem)">Progress gallery: screenshots, photos and clips from the build</p>
+  <div class="bento">
+    <div class="media b1" style="--c1:#FF4B1F;--c2:#5B2BFF"><span class="micro">Tile 1</span></div>
+    <div class="media b2" style="--c1:#3B5BFF;--c2:#FF7A2B"><span class="micro">Tile 2</span></div>
+    <div class="media b3" style="--c1:#FFD21F;--c2:#12C9A6"><span class="micro">Tile 3</span></div>
+    <div class="media b4" style="--c1:#12C9A6;--c2:#1B2A6B"><span class="micro">Tile 4</span></div>
+    <div class="media b5" style="--c1:#FF4B1F;--c2:#FFD21F"><span class="micro">Tile 5</span></div>
+    <div class="media b6" style="--c1:#5B2BFF;--c2:#FF4B1F"><span class="micro">Tile 6</span></div>
+    <div class="media b7" style="--c1:#FFD21F;--c2:#3B5BFF"><span class="micro">Tile 7</span></div>
+  </div>
+</section>
+
+<!-- CULTURE WALL. .fact is the AI hook: fill data-city and data-fact-id -->
+<section class="culture" id="culture-wall" aria-labelledby="culture-title">
+  <div class="container">
+    <header class="section__head">
+      <h2 id="culture-title">The culture <span class="dim">wall</span></h2>
+      <p class="micro">Tag a city on the Bulletin Board and the Culture Companion writes a fact about it</p>
+    </header>
+
+    <article class="lead">
+      <figure><div class="media" style="--c1:#FF4B1F;--c2:#FFD21F" role="img" aria-label="Placeholder: large visual for the main story"><span class="micro">Large visual</span></div></figure>
+      <div class="lead__over">
+        <ul class="tags"><li class="tag tag--ams">Amsterdam</li></ul>
+        <h3>Headline for the <span class="hi">main story</span></h3>
+      </div>
+      <aside class="fact" data-city="Amsterdam" data-fact-id="">
+        <p class="micro">Culture Companion, Amsterdam</p>
+        <p class="fact__body">The AI-generated cultural fact appears here, loaded from the facts table.</p>
+      </aside>
+    </article>
+
+    <div class="pair">
+      <article class="brief">
+        <figure><div class="media" style="--ratio:4/5;--c1:#FFD21F;--c2:#3B5BFF" role="img" aria-label="Placeholder: image for second story"><span class="micro">Portrait 4:5</span></div></figure>
+        <ul class="tags"><li class="tag tag--sto">Stockholm</li></ul>
+        <h3>Headline for the second story</h3>
+        <p class="lede">Two sentences that introduce the piece.</p>
+        <aside class="fact fact--sto" data-city="Stockholm" data-fact-id=""><p class="micro">Culture Companion, Stockholm</p><p class="fact__body">Generated fact goes here.</p></aside>
+      </article>
+      <article class="brief">
+        <figure><div class="media" style="--ratio:3/2;--c1:#FF4B1F;--c2:#5B2BFF" role="img" aria-label="Placeholder: image for third story"><span class="micro">Landscape 3:2</span></div></figure>
+        <ul class="tags"><li class="tag tag--ams">Amsterdam</li><li class="tag tag--sto">Stockholm</li></ul>
+        <h3>Headline for the third story</h3>
+        <p class="lede">Two sentences that introduce the piece.</p>
+        <aside class="fact" data-city="" data-fact-id=""><p class="micro">Culture Companion</p><p class="fact__body">Generated fact goes here.</p></aside>
+      </article>
+    </div>
+
+    <div class="cta">
+      <p>Add your <span class="hi">city</span></p>
+      <a class="btn" href="bulletin-board.html">Open the Bulletin Board</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="colophon">
+  <div class="container">
+    <div class="colophon__grid">
+      <div><p class="brand">Bridging Worlds</p><p class="micro" style="margin-top:.75rem">A student project connecting two cities through games and the culture behind them.</p></div>
+      <div><h2>Made at</h2><ul><li>Mediacollege Amsterdam</li><li>LBS Kreativa Gymnasiet, Stockholm</li></ul></div>
+      <div><h2>Pages</h2><ul><li><a href="#games">Games</a></li><li><a href="#culture-wall">Culture Wall</a></li><li><a href="bulletin-board.html">Bulletin Board</a></li></ul></div>
+      <div><h2>Team</h2><ul><li>Anna-Maria, backend</li><li>Rens and Daimien, CMS</li><li>Kostik, frontend</li><li>Olle, bulletin board</li><li>Timothy, AI</li></ul></div>
+    </div>
+  </div>
+  <p class="colophon__ghost" aria-hidden="true">Bridging Worlds</p>
+  <div class="container colophon__legal micro"><span>Amsterdam to Stockholm, 2026 and 2027</span><span></span></div>
+</footer>
+</body>
+</html>

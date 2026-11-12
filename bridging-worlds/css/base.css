@@ -1,0 +1,67 @@
+/* base.css — tokens, reset, shared components. Load on EVERY page (bulletin board too). */
+:root{
+  --bg:#0A0A0B; --fg:#F4F2EE; --dim:#4B4B50; --muted:#9A9AA2; --tile:#141417; --line:rgba(255,255,255,.12);
+  --ams:#FF4B1F; --sto:#FFD21F;                    /* Amsterdam red-orange, Stockholm yellow */
+  --display:"Anton","Impact","Arial Narrow",sans-serif;
+  --sans:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --hero:clamp(4.5rem,20vw,26rem); --d2:clamp(3rem,1rem + 9vw,9rem);
+  --d3:clamp(2.25rem,1rem + 5vw,5rem); --d4:clamp(1.6rem,1.1rem + 2vw,2.75rem);
+  --gutter:clamp(1rem,.5rem + 2.5vw,2.5rem); --max:90rem; --r:1.25rem;
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1rem/1.6 var(--sans);-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,video,iframe{display:block;max-width:100%}
+h1,h2,h3,p,ul,dl,dd,figure,blockquote{margin:0}
+ul{padding:0;list-style:none}
+a{color:inherit;text-underline-offset:.2em}
+:focus-visible{outline:2px solid var(--sto);outline-offset:3px}
+.container{width:min(100% - 2*var(--gutter),var(--max));margin-inline:auto}
+h1,h2,h3,.brand{font-family:var(--display);font-weight:400;text-transform:uppercase;line-height:.92;letter-spacing:.005em}
+.dim{color:var(--dim)} .hi{color:var(--sto)} .red{color:var(--ams)}
+.micro{font:400 .6875rem/1.5 var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+
+.tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.tag{font:500 .6875rem/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;padding:.45em .85em;border:1px solid var(--tag-c,var(--muted));color:var(--tag-c,var(--muted));border-radius:99px}
+.tag--ams{--tag-c:var(--ams)} .tag--sto{--tag-c:var(--sto)}
+
+.btn{display:inline-flex;align-items:center;gap:.8em;justify-self:start;padding:.9em 0;border-bottom:1px solid var(--fg);font:500 .8125rem/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;text-decoration:none}
+.btn::after{content:"\2192";color:var(--sto);transition:transform .25s}
+.btn:hover::after{transform:translateX(.4em)}
+
+/* Media box. Drop <img>, <video> or <iframe> inside and it fills the box.
+   Placeholder tint: style="--c1:#FF4B1F;--c2:#5B2BFF;--ratio:4/5" */
+.media{position:relative;aspect-ratio:var(--ratio,16/9);overflow:hidden;border-radius:var(--r);display:flex;align-items:flex-end;padding:1rem;
+  background:radial-gradient(90% 80% at 15% 100%,var(--c1,#FF4B1F),transparent 65%),radial-gradient(80% 70% at 100% 0,var(--c2,#5B2BFF),transparent 60%),#0F0F12}
+.media::after{content:"";position:absolute;inset:0;background:var(--grain);opacity:.22;mix-blend-mode:overlay;pointer-events:none}
+.media:has(>img,>video,>iframe)::after{display:none}
+.media>img,.media>video,.media>iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.media .micro{position:relative;z-index:1;color:#fff;padding:.3rem .6rem;border:1px solid rgba(255,255,255,.5);border-radius:99px}
+
+/* Cutout: transparent PNG of a character that overlaps type */
+.cutout{display:grid;place-items:end center;padding:1rem;text-align:center;border:1px dashed rgba(255,255,255,.35);border-radius:40rem 40rem 0 0;background:linear-gradient(to top,rgba(255,255,255,.1),transparent)}
+.cutout>img{width:100%;height:100%;object-fit:contain;object-position:bottom}
+.cutout:has(>img){border:0;background:none;padding:0}
+
+/* Masthead (.masthead--overlay floats it over the hero) */
+.masthead{border-bottom:1px solid var(--line)}
+.masthead--overlay{position:absolute;inset:0 0 auto;z-index:5;border:0}
+.masthead__bar{display:grid;gap:.75rem;justify-items:center;padding-block:1.25rem}
+.brand{font-size:1.75rem;text-decoration:none}
+.nav{display:flex;gap:1.5rem}
+.nav a{font:500 .75rem/1 var(--mono);text-transform:uppercase;letter-spacing:.06em;text-decoration:none;padding-block:.4rem;border-bottom:1px solid transparent}
+.nav a:hover,.nav a[aria-current]{border-color:var(--sto)}
+@media (min-width:48em){.masthead__bar{grid-template-columns:1fr auto 1fr;justify-items:start}.nav{justify-self:center}.masthead .tags{justify-self:end}}
+
+/* Colophon */
+.colophon{position:relative;overflow:hidden;padding-top:clamp(3rem,6vw,5rem);border-top:1px solid var(--line)}
+.colophon__grid{display:grid;gap:2rem}
+.colophon h2{font:500 .6875rem/1.5 var(--mono);letter-spacing:.06em;color:var(--muted);margin-bottom:.75rem}
+.colophon li,.colophon p{font-size:.9375rem}
+.colophon li+li{margin-top:.3rem}
+.colophon__ghost{font-family:var(--display);text-transform:uppercase;line-height:.8;font-size:clamp(3rem,14.5vw,16rem);white-space:nowrap;color:transparent;-webkit-text-stroke:1px var(--line);margin-top:3rem;user-select:none}
+.colophon__legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem;padding-block:1.25rem}
+@media (min-width:48em){.colophon__grid{grid-template-columns:1.6fr 1fr 1fr 1.2fr}}
