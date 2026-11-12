@@ -10,6 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/bridging-worlds/css/base.css">
 <link rel="stylesheet" href="/bridging-worlds/css/home.css">
+<link rel="stylesheet" href="/bridging-worlds/css/companion.css">
 </head>
 <body>
 
@@ -130,6 +131,35 @@
       </article>
     </div>
 
+    <!-- ===== CULTURE COMPANION: THIMOTHY'S ZONE =====
+         Markup, css/companion.css and js/companion.js are all yours.
+         Hooks: #companion-form (input name="city"), #companion-status, #companion-output,
+         #companion-caption-list (caption suggestions), #companion-feed (stored facts).
+         Set data-state on #companion: empty | loading | ready | error. -->
+    <section class="companion" id="companion" data-state="empty" aria-labelledby="companion-title">
+      <header class="section__head">
+        <h2 id="companion-title">Culture <span class="dim">companion</span></h2>
+        <p class="micro">Type a city, get a fact. Every fact is stored and joins the wall</p>
+      </header>
+      <div class="companion__grid">
+        <form class="companion__form" id="companion-form" novalidate>
+          <label class="micro" for="companion-city">City tag</label>
+          <input id="companion-city" name="city" type="text" placeholder="Amsterdam" autocomplete="off">
+          <button class="btn" type="submit">Generate a fact</button>
+          <p class="micro" id="companion-status" role="status" aria-live="polite">Waiting for a city</p>
+        </form>
+        <div class="companion__output" id="companion-output">
+          <p class="micro">Latest fact</p>
+          <p class="fact__body companion__placeholder">The generated fact renders here.</p>
+        </div>
+        <div class="companion__caption">
+          <p class="micro">Caption suggestions</p>
+          <ul class="companion__chips" id="companion-caption-list"><li class="companion__chip">Suggestion placeholder</li><li class="companion__chip">Suggestion placeholder</li></ul>
+        </div>
+        <ol class="companion__feed" id="companion-feed" aria-label="Stored facts"><li class="companion__item companion__placeholder">Stored facts appear here, newest first.</li></ol>
+      </div>
+    </section>
+
     <div class="cta">
       <p>Add your <span class="hi">city</span></p>
       <a class="btn" href="bulletin-board.html">Open the Bulletin Board</a>
@@ -144,11 +174,12 @@
       <div><p class="brand">Bridging Worlds</p><p class="micro" style="margin-top:.75rem">A student project connecting two cities through games and the culture behind them.</p></div>
       <div><h2>Made at</h2><ul><li>Mediacollege Amsterdam</li><li>LBS Kreativa Gymnasiet, Stockholm</li></ul></div>
       <div><h2>Pages</h2><ul><li><a href="#games">Games</a></li><li><a href="#culture-wall">Culture Wall</a></li><li><a href="bulletin-board.html">Bulletin Board</a></li></ul></div>
-      <div><h2>Team</h2><ul><li>Anna-Maria, backend</li><li>Rens and Daimien, CMS</li><li>Kostik, frontend</li><li>Olle, bulletin board</li><li>Timothy, AI</li></ul></div>
+      <div><h2>Team</h2><ul><li>Anna-Maria, backend</li><li>Rens and Daimien, CMS</li><li>Costic, frontend</li><li>Olle, bulletin board</li><li>Thimothy, AI</li></ul></div>
     </div>
   </div>
   <p class="colophon__ghost" aria-hidden="true">Bridging Worlds</p>
-  <div class="container colophon__legal micro"><span>Amsterdam to Stockholm, 2026 and 2027</span><span></span></div>
+  <div class="container colophon__legal micro"><span>Amsterdam to Stockholm, 2026 and 2027</span><span>Set in Anton, Archivo and IBM Plex Mono</span></div>
 </footer>
+<script src="/js/companion.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,24 @@
+/* companion.css — Thimothy's zone (AI Culture Companion). Tokens come from base.css.
+   Edit freely: nothing else in the site depends on this file. */
+.companion{margin-top:clamp(4rem,8vw,7rem);padding-top:2rem;border-top:1px solid var(--line)}
+.companion__grid{display:grid;gap:1rem;grid-template-areas:"form" "output" "caption" "feed"}
+.companion__form,.companion__output,.companion__caption,.companion__feed{background:var(--tile);border:1px solid var(--line);border-radius:var(--r);padding:1.25rem}
+.companion__form{grid-area:form;display:grid;gap:.9rem;align-content:start}
+.companion__output{grid-area:output;display:grid;gap:.75rem;align-content:start}
+.companion__caption{grid-area:caption;display:grid;gap:.75rem;align-content:start}
+.companion__feed{grid-area:feed;list-style:none;margin:0;display:grid;gap:1rem;align-content:start}
+.companion__form input{width:100%;padding:.5rem 0;background:none;border:0;border-bottom:1px solid var(--fg);border-radius:0;color:var(--fg);font:400 var(--d4)/1.1 var(--display);text-transform:uppercase}
+.companion__form input::placeholder{color:var(--dim)}
+.companion__form input:focus-visible{outline:0;border-color:var(--sto)}
+.companion__form button{cursor:pointer;background:none;border-top:0;border-inline:0;color:var(--fg)}
+.companion__chips{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.companion__chip{font:500 .75rem/1 var(--mono);padding:.6em 1em;border:1px solid var(--line);border-radius:99px;color:var(--muted)}
+.companion__item{display:grid;gap:.4rem;padding-top:1rem;border-top:1px solid var(--line)}
+.companion__item:first-child{padding-top:0;border-top:0}
+.companion__placeholder{color:var(--dim)}
+/* states, set on #companion via data-state: empty | loading | ready | error */
+.companion[data-state="loading"] .companion__output{opacity:.5}
+.companion[data-state="error"] #companion-status{color:var(--ams)}
+@media (min-width:64em){
+  .companion__grid{grid-template-columns:5fr 7fr;grid-template-areas:"form output" "caption feed";gap:1.25rem}
+}
