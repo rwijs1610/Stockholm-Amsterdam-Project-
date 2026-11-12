@@ -128,7 +128,7 @@ body {
 
 .message.user {
     align-self: flex-end;
-    background-color: var(--sth);
+    background-color: var(--ams);
     color: white;
     border-bottom-right-radius: 4px;
 }
@@ -174,7 +174,7 @@ body {
 }
 
 .input-row input:focus {
-    outline: 2px solid var(--sth);
+    outline: 2px solid var(--ams);
     border-color: transparent;
 }
 
