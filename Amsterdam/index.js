@@ -21,7 +21,7 @@ function addMessage(text, sender) {
     messages.scrollTop = messages.scrollHeight;
 }
 
-function sendMessage(text) {
+function sendMessage(text, reply) {
     if (text.trim() === "") {
         return;
     }
@@ -29,17 +29,17 @@ function sendMessage(text) {
     input.value = "";
 
     setTimeout(function () {
-        addMessage("Thanks! We'll get back to you as soon as we can.", "bot");
+        addMessage(reply, "bot");
     }, 600);
 }
 
 form.addEventListener("submit", function (event) {
     event.preventDefault();
-    sendMessage(input.value);
+    sendMessage(input.value, "Thanks! We'll get back to you as soon as we can.");
 });
 
 document.querySelectorAll(".quick-btn").forEach(function (button) {
     button.addEventListener("click", function () {
-        sendMessage(button.dataset.question);
+        sendMessage(button.dataset.question, button.dataset.answer);
     });
 });
