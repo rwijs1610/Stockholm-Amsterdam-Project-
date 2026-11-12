@@ -9,19 +9,30 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/bridging-worlds/css/base.css">
+<link rel="stylesheet" href="/bridging-worlds/css/auth.css">
 <link rel="stylesheet" href="/bridging-worlds/css/home.css">
 <link rel="stylesheet" href="/bridging-worlds/css/companion.css">
 </head>
 <body>
 
 <!-- MASTHEAD: shared. On other pages remove masthead--overlay -->
-<header class="masthead masthead--overlay">
+<!-- PHP: <header class="masthead masthead--overlay" data-auth="<?= $user ? 'in' : 'out' ?>"> -->
+<header class="masthead masthead--overlay" data-auth="out">
   <div class="container masthead__bar">
     <a class="brand" href="index.html">Bridging Worlds</a>
     <nav class="nav" aria-label="Main">
       <a href="#games">Games</a><a href="#culture-wall">Culture Wall</a><a href="bulletin-board.html">Bulletin Board</a>
     </nav>
-    <p class="tags"><span class="tag tag--ams">Amsterdam</span><span class="tag tag--sto">Stockholm</span></p>
+    <div class="auth">
+      <div class="auth__out">
+        <a class="auth__link" href="login.php" data-open="auth" data-tab="login">Log in</a>
+        <a class="auth__cta" href="signup.php" data-open="auth" data-tab="signup">Sign up</a>
+      </div>
+      <div class="auth__in">
+        <!-- PHP: if the user has a picture use <img src="/uploads/avatars/..." alt=""> else their first initial -->
+        <button class="avatar" type="button" data-open="profile" aria-haspopup="dialog" aria-label="Open your profile">B</button>
+      </div>
+    </div>
   </div>
 </header>
 
@@ -31,7 +42,7 @@
   <h1 class="hero__title" id="hero-title"><span><span>Bridging</span></span><span><span>Worlds</span></span></h1>
   <div class="cutout" role="img" aria-label="Placeholder: character cutout"><span class="micro">Transparent PNG of a game character</span></div>
   <div class="hero__foot">
-    <p class="micro">Student exchange<br>Mediacollege Amsterdam x LBS Kreativa Gymnasiet</p>
+    <div><p class="tags"><span class="tag tag--ams">Amsterdam</span><span class="tag tag--sto">Stockholm</span></p><p class="micro">Student exchange<br>Mediacollege Amsterdam x LBS Kreativa Gymnasiet</p></div>
     <a class="btn" href="#games">See the games</a>
   </div>
 </section>
@@ -180,6 +191,68 @@
   <p class="colophon__ghost" aria-hidden="true">Bridging Worlds</p>
   <div class="container colophon__legal micro"><span>Amsterdam to Stockholm, 2026 and 2027</span><span>Set in Anton, Archivo and IBM Plex Mono</span></div>
 </footer>
+
+<!-- ===== ACCOUNT DIALOGS (shared: move to includes/auth-dialogs.php). Rens and Daimien: wire the form actions.
+     Forms post normally to PHP (session auth). Add your CSRF token in each hidden input. -->
+<dialog class="modal" id="auth-dialog" aria-label="Log in or sign up">
+  <div class="modal__panel">
+    <button class="modal__close" type="button" data-close>Close</button>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" type="button" data-tab="login" aria-selected="true">Log in</button>
+      <button class="tab" role="tab" type="button" data-tab="signup" aria-selected="false" tabindex="-1">Sign up</button>
+    </div>
+
+    <div role="tabpanel" data-panel="login">
+      <form class="form" method="post" action="login.php">
+        <h2 class="modal__title">Welcome <span class="dim">back</span></h2>
+        <input type="hidden" name="csrf" value="">
+        <label class="field"><span class="micro">Email or username</span><input name="identity" type="text" autocomplete="username" required></label>
+        <label class="field"><span class="micro">Password</span><input name="password" type="password" autocomplete="current-password" required></label>
+        <p class="form__error micro" role="alert" hidden></p>
+        <button class="btn--solid" type="submit">Log in</button>
+      </form>
+    </div>
+
+    <div role="tabpanel" data-panel="signup" hidden>
+      <form class="form" method="post" action="signup.php">
+        <h2 class="modal__title">Join the <span class="hi">wall</span></h2>
+        <input type="hidden" name="csrf" value="">
+        <label class="field"><span class="micro">Display name</span><input name="name" type="text" maxlength="40" autocomplete="nickname" required></label>
+        <label class="field"><span class="micro">Email</span><input name="email" type="email" autocomplete="email" required></label>
+        <label class="field"><span class="micro">Password, 8 characters or more</span><input name="password" type="password" minlength="8" autocomplete="new-password" required></label>
+        <p class="form__error micro" role="alert" hidden></p>
+        <button class="btn--solid" type="submit">Create account</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
+<dialog class="modal" id="profile-dialog" aria-labelledby="profile-title">
+  <div class="modal__panel">
+    <button class="modal__close" type="button" data-close>Close</button>
+    <form class="form" method="post" action="profile.php" enctype="multipart/form-data">
+      <h2 class="modal__title" id="profile-title">Your <span class="hi">profile</span></h2>
+      <input type="hidden" name="csrf" value="">
+      <div class="profile__row">
+        <div class="profile__avatar" aria-hidden="true">B</div>
+        <div>
+          <label class="filebtn"><input type="file" name="avatar" accept="image/png,image/jpeg,image/webp"><span class="btn">Choose a photo</span></label>
+          <p class="micro">JPG, PNG or WebP, up to 2 MB</p>
+        </div>
+      </div>
+      <label class="field"><span class="micro">Display name</span><input name="name" type="text" maxlength="40" value="" autocomplete="nickname" required></label>
+      <p class="form__error micro" role="alert" hidden></p>
+      <button class="btn--solid" type="submit">Save changes</button>
+    </form>
+    <form class="modal__foot" method="post" action="logout.php">
+      <input type="hidden" name="csrf" value="">
+      <span class="micro">Signed in</span>
+      <button class="auth__link" type="submit">Log out</button>
+    </form>
+  </div>
+</dialog>
+
+<script src="/js/auth.js" defer></script>
 <script src="/js/companion.js" defer></script>
 </body>
 </html>

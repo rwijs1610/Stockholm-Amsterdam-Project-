@@ -76,3 +76,4 @@
   .pair .brief:last-child{margin-top:6rem}
   .cta{grid-template-columns:1fr auto;align-items:end}
 }
+.hero__foot .tags{margin-bottom:.75rem}
