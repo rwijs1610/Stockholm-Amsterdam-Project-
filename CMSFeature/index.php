@@ -1,4 +1,5 @@
-    <?php
+<?php
+declare(strict_types=1);
     if (isset($_POST['CMS'])) {
         header("Location: cms/CMS.php");
         exit();
@@ -23,7 +24,6 @@
 
     </html>
 <?php
-declare(strict_types=1);
 
 $modules = [
     [
